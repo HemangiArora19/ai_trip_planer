@@ -41,7 +41,6 @@
 // }
 
 // export default ViewTrip
-
 import React, { useEffect, useState } from 'react';
 import { doc, getDoc } from 'firebase/firestore';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -51,18 +50,16 @@ import InfoSection from '../../Componenets/InfoSection';
 import Hotels from '../../Componenets/Hotels';
 import PlacesToVisit from '../../Componenets/PlacesToVisit';
 import Footer from '../../Componenets/Footer';
-import Loader from '../../Componenets/Loader'; // Make sure the path is correct
+import Loader from '../../Componenets/Loader'; // Make sure this path is correct
 
 const ViewTrip = () => {
   const { tripId } = useParams();
   const [trip, setTrip] = useState(null);
   const navigate = useNavigate();
 
-  // Retrieve logged-in user from localStorage
   const user = JSON.parse(localStorage.getItem('user'));
 
   useEffect(() => {
-    // 🔒 If user is not signed in
     if (!user) {
       toast.error('Please sign in to view this trip.');
       navigate('/');
@@ -74,7 +71,6 @@ const ViewTrip = () => {
     }
   }, [tripId]);
 
-  // 🔍 Fetch the trip document from Firestore
   const GetTripData = async () => {
     try {
       const docRef = doc(db, 'AITrips', tripId);
@@ -83,7 +79,6 @@ const ViewTrip = () => {
       if (docSnap.exists()) {
         const data = docSnap.data();
 
-        // 🔒 Check if the trip belongs to the logged-in user
         if (data.userEmail !== user.email) {
           toast.error('You are not authorized to view this trip.');
           navigate('/create-trip');
@@ -102,14 +97,13 @@ const ViewTrip = () => {
     }
   };
 
-  // 🌀 Show loader while data is loading
   if (!trip) {
     return <Loader />;
   }
 
-  // ✅ Render trip details
   return (
-    <div className="p-10 md:px-20 lg:px-44 xl:px-56">
+    <div className="px-4 sm:px-6 md:px-10 lg:px-20 xl:px-44 2xl:px-56 py-10 space-y-12">
+      {/* Responsive padding applied */}
       <InfoSection trip={trip} />
       <Hotels trip={trip} />
       <PlacesToVisit trip={trip} />
