@@ -8,7 +8,7 @@ import {
 } from "../constansts/options";
 import { Button } from "../components/ui/button";
 import { toast } from "sonner";
-import { chatSession } from "../services/AIMODAL";
+import { chatSession } from "../services/AIMODAL.jsx";
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useGoogleLogin } from "@react-oauth/google";
