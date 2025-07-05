@@ -48,5 +48,9 @@
   },
   "resolutions": {
     "react-google-places-autocomplete/react": "19.1.0"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "eslint.config.js",
+  "author": "",
+  "license": "ISC"
 }
