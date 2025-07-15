@@ -80,31 +80,21 @@ An intelligent, full-stack AI-powered travel planner that helps users create **p
    GOOGLE_CLIENT_SECRET=your_client_secret
    GEMINI_API_KEY=your_gemini_api_key
    PLACES_API_KEY=your_google_places_api_key
-   MONGODB_URI=your_mongo_db_uri
+  
    ```
 
 3. **Install dependencies**
 
    ```bash
-   # Backend
-   cd backend
    npm install
 
-   # Frontend
-   cd ../frontend
-   npm install
    ```
 
 4. **Run the app**
 
    ```bash
-   # Start backend
-   cd backend
+  
    npm run dev
-
-   # Start frontend
-   cd ../frontend
-   npm start
    ```
 
 ---
